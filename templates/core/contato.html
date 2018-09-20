@@ -1,0 +1,114 @@
+
+{% load static %}
+
+{% load widget_tweaks %}
+<!doctype html>
+<html lang="en">
+  <head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{% static 'css_william/will.css' %}">
+   <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'bower_components/font-awesome/css/font-awesome.min.css' %}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="{% static 'bower_components/Ionicons/css/ionicons.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'dist/css/AdminLTE.min.css' %}">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="{% static 'dist/css/skins/_all-skins.min.css' %}">
+  <!-- Ctrl_p style -->
+  <link rel="stylesheet" href="{% static 'dist/my-css/impressao.css' %}">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="{% static 'dist/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'carousel.css' %} " rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+  
+</head>
+<body>
+  <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+         
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <li class="nav-item active">
+              <a class="nav-link titulo " href="{% url 'museu:home' %}"><img src="https://icon-icons.com/icons2/1364/PNG/512/publicmuseumsign_89226.png" width="40px"></a>
+            </li>
+          <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item active">
+              <a class="nav-link titulo " href="{% url 'museu:home' %}">INÍCIO </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link titulo " href="{% url 'museu:sobre' %}">SOBRE</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link titulo " href="#">CADASTRE PATRIMÔNIOS</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link titulo " href="#">EXPOSIÇÕES</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link titulo" href="{% url 'museu:contato' %}">CONTATO</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+</header>
+
+
+  <div class="column">
+    <section class="content">
+      <div class="box box-danger">
+        <div class="box-header with-border">
+          <h1 class="box-title ">Fale conosco</h1>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" method="POST">
+          {% csrf_token %}
+
+          {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+          {% endfor %}
+
+          <div class="box-body">
+          {% for field in form.visible_fields %}
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-4 nicoli">{{ field.label }}</label>
+              <div class="col-sm-9">
+                {{ field|add_class:'form-control' }}
+                {% for error in field.errors %}
+                  <span class="help-block  ">{{ error }}</span>
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
+          </div>
+          <!-- /.box-body -->
+          <div class="box-footer">
+            <button type="submit" class="btn btn-primary ">Salvar</button>
+            <a href="#" class="btn btn-danger pull-left ">Cancel</a>
+          </div>
+          <!-- /.box-footer -->
+        </form>
+      </div>
+    </section>
+   
+</div>
+
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+<script src="../../assets/js/vendor/holder.min.js"></script>
+  </body>
+</html>
+

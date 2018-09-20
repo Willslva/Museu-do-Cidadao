@@ -1,0 +1,33 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> Carmen Sandiego </title>
+  <link href="https://fonts.googleapis.com/css?family=Aldrich|Allerta+Stencil|Bangers|Barrio|Black+Ops+One|Bungee+Shade|Diplomata|Faster+One|Holtwood+One+SC|Monofett|New+Rocker|Pacifico|Press+Start+2P|Righteous|Sigmar+One" rel="stylesheet">
+  
+
+
+</head>
+<body>
+  
+      <form method="post">
+        {% csrf_token %}
+        <div style="display:block; margin: 40px 25%;">
+        <p class="label">Nickname</p>
+          <input type="text" name="username" class='field' />
+        <p class="label">Password</p>
+          <input type="password" name="password" class='field' />
+        </div>
+        <div style="display: inline-block; width:50%; margin: 40px 25%;">
+
+          <input type="submit" class="button" value="Login">
+          <a href="/"><input type="button"  class="button2" value="Voltar"></a>
+
+
+
+        </form>
+        </div>
+</body>
+</html>
