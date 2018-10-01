@@ -36,7 +36,32 @@ class Contato(CreateView):
         obj.save()
         return super(Contato, self).form_valid(form)
 
+class Exposicao(CreateView):
+    model = models.Exposicao
+    template_name = 'core/exposicao.html'
+    success_url = reverse_lazy('museu:contato')
+    fields = ['titulo']
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.usuario = self.request.user
+        obj.save()
+        return super(Exposicao, self).form_valid(form)
+
+class Imagem(CreateView):
+    model = models.Imagem
+    template_name = 'core/imagem.html'
+    success_url = reverse_lazy('museu:contato')
+    fields = ['titulo', 'descricao','original']
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.save()
+        return super(Imagem, self).form_valid(form)
+
 class Sobre(TemplateView):
     template_name = 'core/sobre.html'
+
+
 
 

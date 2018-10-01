@@ -32,4 +32,4 @@ class Contato(forms.ModelForm):
         'assunto': 'Assunto',
         'mensagem': 'Mensagem',
     }
-    
+

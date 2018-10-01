@@ -1,0 +1,77 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> Carmen Sandiego </title>
+  <link href="https://fonts.googleapis.com/css?family=Aldrich|Allerta+Stencil|Bangers|Barrio|Black+Ops+One|Bungee+Shade|Diplomata|Faster+One|Holtwood+One+SC|Monofett|New+Rocker|Pacifico|Press+Start+2P|Righteous|Sigmar+One" rel="stylesheet">
+
+<script language="javascript" type="text/javascript">
+function validar() {
+  var nome = form1.username.value;
+  var firstnome = form1.first_name.value;
+  var lastnome = form1.last_name.value;
+  var password = form1.password.value;
+  var email = form1.email.value;
+
+    if (nome == "") {
+alert('Preencha o campo com seu nome');
+nome.focus();
+return false;
+}
+if (firstnome == "") {
+alert('Preencha o campo com seu primeiro nome');
+firstnome.focus();
+return false;
+}
+if (lastnome == "") {
+alert('Preencha o campo com seu último nome');
+lastnome.focus();
+return false;
+}
+if (password.length < 8) {
+alert('Preencha o campo com sua senha com no mímino 8 caracteres');
+password.focus();
+return false;
+}
+
+if(email.indexOf("@") == -1 ||
+      email.indexOf(".") == -1 ||
+      email == "" ||
+      email == null) {
+        alert("Por favor, indique um e-mail válido.");
+        email.focus();
+        return false;
+    }
+}
+    
+  </script>
+</head>
+<body>
+    <form name="form1" action="{% url 'museu:exposicao-create' %}"  method="post"  >
+    {% csrf_token %}
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Titulo da exposicao</label>
+                  <input class="form-control" id="titulo" name="titulo" type="text">
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" onclick="return validar()" class="btn btn-primary btn-xl" id="sendMessageButton">Salvar</button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</form>
+</body>
+</html>
+
+

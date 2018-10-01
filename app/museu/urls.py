@@ -19,6 +19,12 @@ urlpatterns = [
     #Cadastro de usuario
      path('usuarios/novo/', core.UserCreateView.as_view(), name='user-create'),
 
+    #Cadastro de exposicao
+     path('exposicao/novo/', core.Exposicao.as_view(), name='exposicao-create'),
+
+    #Cadastro de imagens de uma exposicao
+     path('imagem/novo/', core.Imagem.as_view(), name='imagem-create'),
+
     #Home
      path('', core.Home.as_view(), name='home'),
 
