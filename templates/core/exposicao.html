@@ -49,7 +49,7 @@ if(email.indexOf("@") == -1 ||
   </script>
 </head>
 <body>
-    <form name="form1" action="{% url 'museu:exposicao-create' %}"  method="post"  >
+    <form name="form1" action="{% url 'museu:exposicao-create' %}"  method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <section id="contact">
       <div class="container">
@@ -62,8 +62,21 @@ if(email.indexOf("@") == -1 ||
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Titulo da imagem</label>
+                  <input class="form-control" id="titulo_imagem" name="titulo_imagem" type="text">
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Imagem</label>
+                  <input class="form-control" id="original" name="original" type="file">
+                </div>
+              </div>
               <div class="form-group">
-                <button type="submit" onclick="return validar()" class="btn btn-primary btn-xl" id="sendMessageButton">Salvar</button>
+                <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Salvar</button>
               </div>
           </div>
         </div>

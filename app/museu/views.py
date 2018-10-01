@@ -36,31 +36,28 @@ class Contato(CreateView):
         obj.save()
         return super(Contato, self).form_valid(form)
 
-class Exposicao(CreateView):
+class Exposicao(ListView):
     model = models.Exposicao
     template_name = 'core/exposicao.html'
-    success_url = reverse_lazy('museu:contato')
-    fields = ['titulo']
 
-    def form_valid(self, form):
-        obj = form.save(commit=False)
-        obj.usuario = self.request.user
-        obj.save()
-        return super(Exposicao, self).form_valid(form)
-
-class Imagem(CreateView):
-    model = models.Imagem
-    template_name = 'core/imagem.html'
-    success_url = reverse_lazy('museu:contato')
-    fields = ['titulo', 'descricao','original']
-
-    def form_valid(self, form):
-        obj = form.save(commit=False)
-        obj.save()
-        return super(Imagem, self).form_valid(form)
+    def post(self, request, *args, **kwargs):
+        a =  models.Exposicao.objects.create(usuario=self.request.user, titulo=self.request.POST['titulo'])
+        a.save()
+        b =  models.Imagem.objects.create(exposicao=a,titulo_imagem=self.request.POST['titulo_imagem'], original=self.request.FILES['original'])
+        b.save()
+        return HttpResponseRedirect('/exposicao/novo/')
 
 class Sobre(TemplateView):
     template_name = 'core/sobre.html'
+
+class ListExposicao(ListView):
+    model = models.Imagem
+    template_name = 'core/listexposicao.html'
+
+    def get_context_data(self, **kwargs):
+        kwargs['imagens'] = models.Imagem.objects.all()
+        return super(ListExposicao, self).get_context_data(**kwargs)
+
 
 
 

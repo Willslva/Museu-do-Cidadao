@@ -22,8 +22,8 @@ urlpatterns = [
     #Cadastro de exposicao
      path('exposicao/novo/', core.Exposicao.as_view(), name='exposicao-create'),
 
-    #Cadastro de imagens de uma exposicao
-     path('imagem/novo/', core.Imagem.as_view(), name='imagem-create'),
+    #Exibição de exposições
+     path('exposicoes/', core.ListExposicao.as_view(), name='exposicao-list'),
 
     #Home
      path('', core.Home.as_view(), name='home'),

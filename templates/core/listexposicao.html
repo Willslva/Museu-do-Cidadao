@@ -1,0 +1,19 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> Museu do Cidadão </title>
+  <link href="https://fonts.googleapis.com/css?family=Aldrich|Allerta+Stencil|Bangers|Barrio|Black+Ops+One|Bungee+Shade|Diplomata|Faster+One|Holtwood+One+SC|Monofett|New+Rocker|Pacifico|Press+Start+2P|Righteous|Sigmar+One" rel="stylesheet">
+
+{% for object in object_list %}
+      {{object.exposicao}}
+      {{object.titulo_imagem}}
+      <img src="{{ object.original.url }}" class="user-image"  >
+      {{object.publicacao}}
+{% endfor %}
+</body>
+</html>
+
+
