@@ -53,9 +53,10 @@ class Contato(models.Model):
     	verbose_name_plural = 'Contatos'
 
 
-class Exposicao(models.Model):
+class Exposicao (models.Model):
     usuario = models.ForeignKey(UUIDUser,on_delete=models.CASCADE,related_name="user",verbose_name='Usuário')
     titulo = models.CharField(max_length=100)
+    assunto = models.TextField()
 
     class Meta:
         verbose_name = 'Exposicao'
@@ -66,7 +67,6 @@ class Exposicao(models.Model):
 
 class Imagem(models.Model): 
     exposicao = models.ForeignKey(Exposicao,on_delete=models.CASCADE,related_name="exposicao",verbose_name='Exposicao')
-    titulo_imagem = models.CharField(max_length=100)
     original = models.ImageField(
         null=True,
         blank=True,
@@ -77,6 +77,3 @@ class Imagem(models.Model):
     class Meta:
         verbose_name = 'Imagem'
         verbose_name_plural = 'Imagens'
-
-    def __str__(self):
-        return self.titulo_imagem

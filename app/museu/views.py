@@ -41,21 +41,22 @@ class Exposicao(ListView):
     template_name = 'core/exposicao.html'
 
     def post(self, request, *args, **kwargs):
-        a =  models.Exposicao.objects.create(usuario=self.request.user, titulo=self.request.POST['titulo'])
+        a =  models.Exposicao.objects.create(usuario=self.request.user, titulo=self.request.POST['titulo'], assunto=self.request.POST['assunto'])
         a.save()
-        b =  models.Imagem.objects.create(exposicao=a,titulo_imagem=self.request.POST['titulo_imagem'], original=self.request.FILES['original'])
-        b.save()
+        for afile in request.FILES.getlist('original'):
+            b =  models.Imagem.objects.create(exposicao=a,original=afile)
+            b.save()
         return HttpResponseRedirect('/exposicao/novo/')
 
 class Sobre(TemplateView):
     template_name = 'core/sobre.html'
 
 class ListExposicao(ListView):
-    model = models.Imagem
+    model = models.Exposicao
     template_name = 'core/listexposicao.html'
 
     def get_context_data(self, **kwargs):
-        kwargs['imagens'] = models.Imagem.objects.all()
+        kwargs['imagem'] = models.Imagem.objects.all()
         return super(ListExposicao, self).get_context_data(**kwargs)
 
 

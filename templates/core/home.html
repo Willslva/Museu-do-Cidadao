@@ -3,7 +3,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  <title>Bootstrap Example</title>
+  <title>Museu do Cidadão</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="{% static 'css_william/will.css' %}">
@@ -36,6 +36,12 @@
             </li>
             <li class="nav-item active">
               <a class="nav-link titulo" href="{% url 'museu:contato' %}">CONTATO</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link titulo" href="{% url 'museu:user-create' %}">CADASTRE-SE</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link titulo" href="{% url 'museu:login' %}">LOGIN</a>
             </li>
           </ul>
         </div>

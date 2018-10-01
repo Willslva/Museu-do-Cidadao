@@ -1,17 +1,62 @@
+
 {% load static %}
+
 {% load widget_tweaks %}
-<!DOCTYPE html>
-<html>
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
+  <title>Bootstrap Example</title>
   <meta charset="utf-8">
-  <title> Museu do Cidadão </title>
-  <link href="https://fonts.googleapis.com/css?family=Aldrich|Allerta+Stencil|Bangers|Barrio|Black+Ops+One|Bungee+Shade|Diplomata|Faster+One|Holtwood+One+SC|Monofett|New+Rocker|Pacifico|Press+Start+2P|Righteous|Sigmar+One" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{% static 'css_william/will.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="{% static 'dist/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'carousel.css' %} " rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+</head>
+<body>
+  <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+         
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <li class="nav-item active">
+              <a class="nav-link titulo " href="{% url 'museu:home' %}"><img src="https://icon-icons.com/icons2/1364/PNG/512/publicmuseumsign_89226.png" width="40px"></a>
+            </li>
+          <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item active">
+              <a class="nav-link titulo " href="{% url 'museu:home' %}">INÍCIO </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link titulo " href="{% url 'museu:sobre' %}">SOBRE</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link titulo " href="{% url 'museu:exposicao-create' %}">CADASTRE PATRIMÔNIOS</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link titulo " href="{% url 'museu:exposicao-list' %}">EXPOSIÇÕES</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link titulo" href="{% url 'museu:contato' %}">CONTATO</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+</header>
+</br>
+</br>
+</br>
 
 {% for object in object_list %}
-      {{object.exposicao}}
-      {{object.titulo_imagem}}
-      <img src="{{ object.original.url }}" class="user-image"  >
-      {{object.publicacao}}
+      
+      {% for imagens in imagem %}
+        {% if imagens.exposicao == object %}
+          <img src="{{ imagens.original.url }}" class="user-image"  >
+        {% endif %}
+      {% endfor %}
+      <h1>{{object.titulo}}</h1>
+      <h1>{{object.assunto}}</h1>
+
 {% endfor %}
 </body>
 </html>
