@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css_william/will.css' %}">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="{% static 'dist/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'dist/css/image.css' %}" rel="stylesheet">
   <link href="{% static 'carousel.css' %} " rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
 </head>
@@ -48,14 +49,20 @@
 </br>
 
 {% for object in object_list %}
-      
+      <div style="text-align: center; padding-top: 50px;">
+      <h1>{{object.titulo}}</h1>
+      </div>
+      <div style="text-align: justify; padding-top: 50px;padding-bottom:40px;">
+
+      <h1>{{object.assunto}}</h1>
+
       {% for imagens in imagem %}
         {% if imagens.exposicao == object %}
-          <img src="{{ imagens.original.url }}" class="user-image"  >
+          <img style="margin-left: 40px; " width="390" height="290" src="{{ imagens.original.url }}" class="user-image"  >
         {% endif %}
       {% endfor %}
-      <h1>{{object.titulo}}</h1>
-      <h1>{{object.assunto}}</h1>
+      
+  
 
 {% endfor %}
 </body>
