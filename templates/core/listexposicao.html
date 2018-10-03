@@ -52,9 +52,8 @@
       <div style="text-align: center; padding-top: 50px;">
       <h1>{{object.titulo}}</h1>
       </div>
-      <div style="text-align: justify; padding-top: 50px;padding-bottom:40px;">
 
-      <h1>{{object.assunto}}</h1>
+      <h2 style="word-wrap: break-word; margin-left: 40px; margin-right: 40px; text-align: justify;"  >{{object.assunto}}</h2>
 
       {% for imagens in imagem %}
         {% if imagens.exposicao == object %}
