@@ -1,3 +1,6 @@
+document.getElementById("button").onclick = function() {validar()};
+
+
 function validar() {
   var nome = form1.username.value;
   var firstnome = form1.first_name.value;
