@@ -55,12 +55,12 @@
 </head>
 <body>
   {% if request.user.is_authenticated %}
-    <form style="padding-top: 40px;" name="form1" action="{% url 'museu:exposicao-create' %}"  method="post" enctype="multipart/form-data">
+    <form style="padding-top: 40px;" id="formexposicao" name="formexposicao1" onsubmit="exposicao()" action="{% url 'museu:exposicao-create' %}"  method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <section id="contact">
+    <section >
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 mx-auto">
+          <div class="col-lg-8 mx-auto" >
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                   <label>Titulo da exposicao</label>
@@ -71,7 +71,7 @@
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                   <label>Assunto</label>
-                  <textarea class="form-control" id="assunto" name="assunto" type="text"> </textarea>
+                  <input class="form-control" id="assunto" name="assunto" type="text">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>

@@ -75,34 +75,48 @@
         <div class="box-header with-border">
           <h1 class="box-title ">Fale conosco</h1>
         </div>
-        <!-- /.box-header -->
-        <!-- form start -->
-        <form class="form-horizontal" method="POST">
-          {% csrf_token %}
-
-          {% for hidden in form.hidden_fields %}
-            {{ hidden }}
-          {% endfor %}
-
-          <div class="box-body">
-          {% for field in form.visible_fields %}
-            <div class="form-group">
-              <label for="inputEmail3" class="col-sm-4 nicoli">{{ field.label }}</label>
-              <div class="col-sm-9">
-                {{ field|add_class:'form-control' }}
-                {% for error in field.errors %}
-                  <span class="help-block  ">{{ error }}</span>
-                {% endfor %}
+        <form  style="padding-top: 80px;" id="formauth" name="formauth1" onsubmit="auth()" method="post">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Nome</label>
+                  <input class="form-control" id="nome" name="nome" type="text" >
+                  <p class="help-block text-danger"></p>
+                </div>
               </div>
-            </div>
-          {% endfor %}
+              
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>E-mail</label>
+                  <input class="form-control" id="email" name="email" type="email" >
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label> Assunto</label>
+                  <input class="form-control" id="assunto" name="assunto" type="text" >
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                  <label>Mensagem</label>
+                  <input class="form-control" id="mensagem" name="mensagem" type="text">
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+
+              <div id="success"></div>
+              <div class="form-group">
+                <button type="submit"  class="btn btn-primary btn-xl" id="sendMessageButton">Salvar</button>
+              </div>
           </div>
-          <!-- /.box-body -->
-          <div class="box-footer">
-            <button type="submit" class="btn btn-primary ">Salvar</button>
-            <a href="#" class="btn btn-danger pull-left ">Cancel</a>
-          </div>
-          <!-- /.box-footer -->
+        </div>
         </form>
       </div>
     </section>
