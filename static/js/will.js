@@ -1,4 +1,4 @@
-function validar() {
+function validarvelho() {
   var nome = form1.nome.value;
   var assunto = form1.assunto.value;
   var mensagem = form1.mensagem.value;

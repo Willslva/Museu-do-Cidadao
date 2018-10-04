@@ -14,8 +14,8 @@
   <link href="{% static 'dist/css/bootstrap.min.css' %}" rel="stylesheet">
   <link href="{% static 'carousel.css' %} " rel="stylesheet">
   <link href="{% static 'css_william/form.css' %} " rel="stylesheet">
-  <link href="{% static 'js/form.js' %} " rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+  <script src="{% static 'js/form.js' %} " type='javascript'></script>
 </head>
 <body>
   <header>
@@ -48,7 +48,7 @@
 </header>
 </head>
 <body>
-    <form  style="padding-top: 80px;" name="form1" action="{% url 'museu:user-create' %}"  method="post"  >
+    <form  style="padding-top: 80px;" id="form" name="form1" onsubmit="validar()" action="{% url 'museu:user-create' %}"  method="post"  >
     {% csrf_token %}
     <section id="contact">
       <div class="container">
@@ -102,7 +102,6 @@
     </section>
 
 </form>
-<script src="{% static 'js/form.js' %} " type='text/javascript' /></script>
 </body>
 </html>
 
