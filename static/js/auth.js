@@ -35,3 +35,4 @@ if(email.indexOf("@") == -1 ||
         return false;
     }
 }
+  

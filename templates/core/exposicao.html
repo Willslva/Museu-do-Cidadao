@@ -1,11 +1,9 @@
-
 {% load static %}
-
 {% load widget_tweaks %}
 <!doctype html>
 <html lang="en">
   <head>
-  <title>Bootstrap Example</title>
+  <title>Museu do Cidadão</title>
   <meta charset="utf-8">
   <script src="{% static 'js/exposicao.js' %}"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,52 +42,11 @@
         </div>
       </nav>
 </header>
-</br>
-</br>
-</br>
-<script language="javascript" type="text/javascript">
-function validar() {
-  var nome = form1.username.value;
-  var firstnome = form1.first_name.value;
-  var lastnome = form1.last_name.value;
-  var password = form1.password.value;
-  var email = form1.email.value;
 
-    if (nome == "") {
-alert('Preencha o campo com seu nome');
-nome.focus();
-return false;
-}
-if (firstnome == "") {
-alert('Preencha o campo com seu primeiro nome');
-firstnome.focus();
-return false;
-}
-if (lastnome == "") {
-alert('Preencha o campo com seu último nome');
-lastnome.focus();
-return false;
-}
-if (password.length < 8) {
-alert('Preencha o campo com sua senha com no mímino 8 caracteres');
-password.focus();
-return false;
-}
-
-if(email.indexOf("@") == -1 ||
-      email.indexOf(".") == -1 ||
-      email == "" ||
-      email == null) {
-        alert("Por favor, indique um e-mail válido.");
-        email.focus();
-        return false;
-    }
-}
-    
-  </script>
 </head>
 <body>
-    <form name="form1" action="{% url 'museu:exposicao-create' %}"  method="post" enctype="multipart/form-data">
+  {% if request.user.is_authenticated %}
+    <form style="padding-top: 40px;" name="form1" action="{% url 'museu:exposicao-create' %}"  method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <section id="contact">
       <div class="container">
@@ -124,6 +81,9 @@ if(email.indexOf("@") == -1 ||
     </section>
 
 </form>
+{% else %}
+  <h1 style="padding-top: 40px;" > Para cadastrar um patrimonio sera necessario cadastra-se,para realizar essa acao <a href="{% url 'museu:user-create' %}">clique aqui</a> </h1>
+{% endif %}
 
 </body>
 </html>

@@ -5,7 +5,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  <title>Bootstrap Example</title>
+  <title>Museu do Cidadão</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="{% static 'css_william/will.css' %}">
@@ -44,10 +44,8 @@
         </div>
       </nav>
 </header>
-</br>
-</br>
-</br>
 
+<div style="padding-top: 40px;">
 {% for object in object_list %}
       <div style="text-align: center; padding-top: 50px;">
       <h1>{{object.titulo}}</h1>
@@ -60,10 +58,8 @@
           <img style="margin-left: 40px; " width="390" height="290" src="{{ imagens.original.url }}" class="user-image"  >
         {% endif %}
       {% endfor %}
-      
-  
-
 {% endfor %}
+</div>
 </body>
 </html>
 

@@ -5,7 +5,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  <title>Bootstrap Example</title>
+  <title>Museu do Cidadão</title>
   <meta charset="utf-8">
   <script src="{% static 'js/exposicao.js' %}"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="{% static 'dist/css/bootstrap.min.css' %}" rel="stylesheet">
   <link href="{% static 'carousel.css' %} " rel="stylesheet">
+  <link href="{% static 'css_william/form.css' %} " rel="stylesheet">
+  <link href="{% static 'js/form.js' %} " rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
 </head>
 <body>
@@ -40,59 +42,14 @@
             <li class="nav-item active">
               <a class="nav-link titulo" href="{% url 'museu:contato' %}">CONTATO</a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link titulo" href="{% url 'museu:user-create' %}">CADASTRE-SE</a>
-            </li>
           </ul>
         </div>
       </nav>
 </header>
-</br>
-</br>
-</br>
-<script language="javascript" type="text/javascript">
-function validar() {
-  var nome = form1.username.value;
-  var firstnome = form1.first_name.value;
-  var lastnome = form1.last_name.value;
-  var password = form1.password.value;
-  var email = form1.email.value;
 
-    if (nome == "") {
-alert('Preencha o campo com seu nome');
-nome.focus();
-return false;
-}
-if (firstnome == "") {
-alert('Preencha o campo com seu primeiro nome');
-firstnome.focus();
-return false;
-}
-if (lastnome == "") {
-alert('Preencha o campo com seu último nome');
-lastnome.focus();
-return false;
-}
-if (password.length < 8) {
-alert('Preencha o campo com sua senha com no mímino 8 caracteres');
-password.focus();
-return false;
-}
-
-if(email.indexOf("@") == -1 ||
-      email.indexOf(".") == -1 ||
-      email == "" ||
-      email == null) {
-        alert("Por favor, indique um e-mail válido.");
-        email.focus();
-        return false;
-    }
-}
-    
-  </script>
 </head>
 <body>
-    <form name="form1" action="{% url 'museu:user-create' %}"  method="post"  >
+    <form  style="padding-top: 80px;" name="form1" action="{% url 'museu:user-create' %}"  method="post"  >
     {% csrf_token %}
     <section id="contact">
       <div class="container">

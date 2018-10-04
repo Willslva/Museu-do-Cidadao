@@ -37,12 +37,6 @@
             <li class="nav-item active">
               <a class="nav-link titulo" href="{% url 'museu:contato' %}">CONTATO</a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link titulo" href="{% url 'museu:user-create' %}">CADASTRE-SE</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link titulo" href="{% url 'museu:login' %}">LOGIN</a>
-            </li>
           </ul>
         </div>
       </nav>
@@ -58,17 +52,17 @@
     </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner">
+    <div class="carousel-inner" style="padding-top: 30px;">
       <div class="item active">
-        <img src="https://static.wixstatic.com/media/fcd2f8_8091e09ad0cb4dfea176f293c333f5bb.png" alt="Los Angeles" style="width:80%;">
+        <img src="{% static 'img/museu_1.png' %}" style="width:100%;">
       </div>
 
       <div class="item">
-        <img src="https://pbs.twimg.com/profile_images/712687997385187328/uYJFQjZo.jpg" alt="Chicago" style="width:80%;">
+        <img src="{% static 'img/museu_2.png' %}" alt="Chicago" style="width:100%;">
       </div>
     
       <div class="item">
-        <img src="https://pbs.twimg.com/profile_images/712687997385187328/uYJFQjZo.jpg" alt="New york" style="width:80%;">
+        <img src="{% static 'img/museu_3.png' %}" alt="New york" style="width:100%;">
       </div>
     </div>
 

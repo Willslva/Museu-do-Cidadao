@@ -18,8 +18,16 @@
   margin: 0 0;
   font-weight: normal;
 }
-.descer{
-   margin-top: 40px;
- 
-}
 
+.column p{
+    color: black;
+    text-align: justify;
+    font-size: 20px;
+    margin-top: 40px;
+
+
+  }
+
+.sectionn {
+  background-color: #dddf;
+}
