@@ -38,6 +38,15 @@
             <li class="nav-item active">
               <a class="nav-link titulo" href="{% url 'museu:contato' %}">CONTATO</a>
             </li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-item active">
+              <a class="nav-link titulo" href="{% url 'museu:logout' %}">LOGOUT</a>
+            </li>
+            {% else %}
+            <li class="nav-item active">
+              <a class="nav-link titulo" href="{% url 'museu:login' %}">LOGIN</a>
+            </li>
+            {% endif %}
           </ul>
         </div>
       </nav>
@@ -68,7 +77,7 @@
               </div>
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Imagem</label>
+                  <label>Imagens da exposição</label>
                   <input class="form-control" multiple="true" id="original" name="original" type="file">
                 </div>
               </div>

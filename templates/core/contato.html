@@ -54,6 +54,15 @@
             <li class="nav-item active">
               <a class="nav-link titulo" href="{% url 'museu:contato' %}">CONTATO</a>
             </li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-item active">
+              <a class="nav-link titulo" href="{% url 'museu:logout' %}">LOGOUT</a>
+            </li>
+            {% else %}
+            <li class="nav-item active">
+              <a class="nav-link titulo" href="{% url 'museu:login' %}">LOGIN</a>
+            </li>
+            {% endif %}
           </ul>
         </div>
       </nav>
